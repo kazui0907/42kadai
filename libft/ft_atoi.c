@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:47:05 by kryochik          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/04/21 23:38:44 by kryochik         ###   ########.fr       */
+=======
+/*   Updated: 2024/04/21 23:24:40 by kazui            ###   ########.fr       */
+>>>>>>> 007b977783c6783213e35c23a4d93c585a64ece2
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +50,7 @@ int	ft_atoi(const char *str)
 	return (result);
 }
 
+<<<<<<< HEAD
 // int main (void)
 // {
 //     char *test1 = "9223372036854775806";
@@ -63,3 +68,22 @@ int	ft_atoi(const char *str)
 //     printf("resultult for '%s': %d\n", test6, atoi(test6));
 // 	return (0);
 // }
+=======
+int main (void)
+{
+    char *test1 = "9223372036854775806";
+    char *test2 = "9223372036854775806";
+    char *test3 = "2147483647";
+	char *test4 = "2147483647";
+    char *test5 = "2147483648";
+	char *test6 = "2147483648";
+
+    printf("resultult for '%s': %d\n", test1, ft_atoi(test1));
+    printf("resultult for '%s': %d\n", test2, atoi(test2));
+    printf("resultult for '%s': %d\n", test3, ft_atoi(test3));
+    printf("resultult for '%s': %d\n", test4, atoi(test4));
+    printf("resultult for '%s': %d\n", test5, ft_atoi(test5));
+    printf("resultult for '%s': %d\n", test6, atoi(test6));
+	return (0);
+}
+>>>>>>> 007b977783c6783213e35c23a4d93c585a64ece2
