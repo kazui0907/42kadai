@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:58:58 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/16 18:52:20 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/21 01:58:07 by kazui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ori_search(const char *stack, const char *ne, size_t len,
 		size_t ne_len)
@@ -41,12 +42,20 @@ char	*ori_search(const char *stack, const char *ne, size_t len,
 char	*ft_strnstr(const char *stack, const char *ne, size_t len)
 {
 	size_t	ne_len;
-
+	
+	if (len == 0 && (stack == NULL || ne == NULL))
+		return (NULL);
+	if (!ne || !stack)
+	{
+		volatile char *crash;
+		crash = NULL;
+		*crash = 'x';
+	}	
 	if (*ne == '\0')
 		return ((char *)stack);
 	ne_len = ft_strlen(ne);
-	if (ne_len == 0)
-		return ((char *)stack);
+	if (ne_len == 0 || ne_len > len)
+		return (NULL);
 	return (ori_search(stack, ne, len, ne_len));
 }
 

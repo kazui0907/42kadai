@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:53:19 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/16 18:48:38 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:30:31 by kazui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,22 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	return (result);
 }
-int	main(void)
-{
-	char const *str = "hello,,world,this,is,a,test";
-	char **split = ft_split(str, ',');
-	if (split != NULL)
-	{
-		for (int k = 0; split[k] != NULL; k++)
-		{
-			printf("split[%d]: '%s'\n", k, split[k]);
-			free(split[k]);
-		}
-		free(split);
-	}
-	else
-	{
-		printf("Failed to allocate memory.\n");
-	}
-	return (0);
-}
+// int	main(void)
+// {
+// 	char const *str = "hello,,world,this,is,a,test";
+// 	char **split = ft_split(str, ',');
+// 	if (split != NULL)
+// 	{
+// 		for (int k = 0; split[k] != NULL; k++)
+// 		{
+// 			printf("split[%d]: '%s'\n", k, split[k]);
+// 			free(split[k]);
+// 		}
+// 		free(split);
+// 	}
+// 	else
+// 	{
+// 		printf("Failed to allocate memory.\n");
+// 	}
+// 	return (0);
+// }
