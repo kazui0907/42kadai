@@ -6,7 +6,7 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:53:27 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/21 23:55:11 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/22 05:00:28 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strcpy(char *dst, const char *src)
 		i++;
 	}
 	ptr[i] = '\0';
-	return (&ptr[i]);
+	return (dst);
 }
 
 char	*ft_strdup(const char *s1)
@@ -33,12 +33,6 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 	char	*copy;
 
-	// if (s1 == NULL)
-	// {
-	// 	char *crash;
-	// 	crash = NULL;
-	// 	*crash = 'x';
-	// }
 	len = ft_strlen(s1);
 	copy = (char *)malloc(len + 1);
 	if (copy == NULL)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:53:19 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/18 11:30:31 by kazui            ###   ########.fr       */
+/*   Updated: 2024/04/22 04:08:38 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,92 +15,127 @@
 int	ori_count_words(const char *s, char c)
 {
 	int	count;
-	int	i;
+	int	in_word;
 
 	count = 0;
-	i = 0;
-	if (s == NULL)
-		return (-1);
-	while (s[i] != '\0')
+	in_word = 0;
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
+		if (*s != c && !in_word)
 		{
+			in_word = 1;
 			count++;
-			while (s[i] != '\0' && s[i] != c)
-				i++;
 		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
 	return (count);
 }
 
-char	*ori_copy_segment(const char *s, int start, char c, char **result)
+char	*ori_copy_segment(const char *s, int start, int length)
 {
-	int		i;
-	int		length;
-	int		index;
 	char	*segment;
 
-	i = start;
-	while (s[i] != '\0' && s[i] != c)
-		i++;
-	length = i - start;
 	segment = malloc(length + 1);
 	if (segment == NULL)
 		return (NULL);
-	ft_memcpy(segment, s + start, length);
-	segment[length] = '\0';
-	index = 0;
-	while (result[index] != NULL)
-		index++;
-	result[index] = segment;
+	ft_strlcpy(segment, s + start, length + 1);
 	return (segment);
 }
 
-char	**ori_fill_splits(char const *s, char c, char **result)
+int	ori_word_segment(const char **s_ptr, char c, char **result, int *index_ptr)
 {
-	int	f_index;
-	int	i;
+	const char	*start;
+	int			word_len;
 
-	i = 0;
-	while (s[i] != '\0')
+	start = *s_ptr;
+	word_len = 0;
+	while (**s_ptr && **s_ptr != c)
 	{
-		if (s[i] != c)
-		{
-			if (ori_copy_segment(s, i, c, result) == NULL)
-				return (NULL);
-			while (s[i] != '\0' && s[i] != c)
-				i++;
-		}
-		else
-		{
-			i++;
-		}
+		(*s_ptr)++;
+		word_len++;
 	}
-	f_index = 0;
-	while (result[f_index] != NULL)
-		f_index++;
-	result[f_index] = NULL;
+	result[*index_ptr] = ori_copy_segment(start, 0, word_len);
+	if (result[*index_ptr] == NULL)
+		return (0);
+	(*index_ptr)++;
+	return (1);
+}
+
+char	**ori_fill_splits(const char *s, char c, int count)
+{
+	char	**result;
+	int		i;
+
+	result = malloc((count + 1) * sizeof(char *));
+	i = 0;
+	if (!result)
+		return (NULL);
+	while (*s && i < count)
+	{
+		if (*s != c && !ori_word_segment(&s, c, result, &i))
+		{
+			while (--i >= 0)
+				free(result[i]);
+			free(result);
+			return (NULL);
+		}
+		s++;
+	}
+	result[i] = NULL;
 	return (result);
 }
 
+// char	**ori_fill_splits(const char *s, char c, int count)
+// {
+// 	char **result;
+// 	int i;
+// 	int word_len;
+// 	const char *start;
+
+// 	result = malloc((count + 1) * sizeof(char *));
+// 	if (!result)
+// 		return (NULL);
+// 	i = 0;
+// 	word_len = 0;
+// 	while (*s)
+// 	{
+// 		if (*s != c && word_len ==0)
+// 		{
+// 			start = s;
+// 			while (*s && *s != c)
+// 			{
+// 				s++;
+// 				word_len++;
+// 			}
+// 			result[i++] = ori_copy_segment(start, 0, word_len);
+// 			if (result[i -1] == NULL)
+// 			{
+// 				while (--i >= 0)
+// 					free (result[i]);
+// 				free (result);
+// 				return (NULL);
+// 			}
+// 			word_len = 0;
+// 		}
+// 		else
+// 			s++;
+// 	}
+// 	result[i] = NULL;
+// 	return (result);
+// }
+
 char	**ft_split(const char *s, char c)
 {
-	int		count;
-	char	**result;
+	int	count;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	count = ori_count_words(s, c);
-	if (count < 0)
-		return (NULL);
-	result = malloc((count + 1) * sizeof(char *));
-	if (result == NULL)
-		return (NULL);
-	if (ori_fill_splits(s, c, result) == NULL)
-		return (NULL);
-	return (result);
+	while (*s == c)
+		s++;
+	return (ori_fill_splits(s, c, count));
 }
 // int	main(void)
 // {

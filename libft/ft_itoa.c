@@ -6,7 +6,7 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:31 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/15 23:48:55 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/22 04:26:17 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,23 @@ char	*ori_num(int len, long num)
 {
 	char	*str;
 
-	str = (char *)malloc(sizeof(char) * (len + 1 + (num < 0)));
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	str[len + (num < 0)] = '\0';
+	str[len] = '\0';
 	if (num < 0)
 	{
 		str[0] = '-';
-		num = num * -1;
+		num = -num;
 	}
 	else if (num == 0)
-		str[0] = '0';
-	while (num != 0)
 	{
-		len--;
-		str[len + (num < 0)] = (char)((num % 10) + '0');
+		str[0] = '0';
+		return (str);
+	}
+	while (num != 0 && len-- > 0)
+	{
+		str[len] = (char)((num % 10) + '0');
 		num /= 10;
 	}
 	return (str);

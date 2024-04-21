@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:58:58 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/21 01:58:07 by kazui            ###   ########.fr       */
+/*   Updated: 2024/04/22 05:01:00 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ char	*ori_search(const char *stack, const char *ne, size_t len,
 char	*ft_strnstr(const char *stack, const char *ne, size_t len)
 {
 	size_t	ne_len;
-	
+	char	*crash;
+
 	if (len == 0 && (stack == NULL || ne == NULL))
 		return (NULL);
 	if (!ne || !stack)
 	{
-		volatile char *crash;
 		crash = NULL;
 		*crash = 'x';
-	}	
+	}
 	if (*ne == '\0')
 		return ((char *)stack);
 	ne_len = ft_strlen(ne);

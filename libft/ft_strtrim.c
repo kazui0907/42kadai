@@ -6,7 +6,7 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:59:14 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/16 18:57:21 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/22 00:40:38 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (trim == NULL)
 		return (NULL);
 	ft_strncpy(trim, s1, len);
+	trim[len] = '\0';
 	return (trim);
 }
 
