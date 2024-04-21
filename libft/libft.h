@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:51:07 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 18:58:24 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/19 17:56:34 by kazui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 }					t_list;
 
 // libc
-int					ft_atoi(char *str);
+int					ft_atoi(const char *str);
 void				ft_bzero(void *b, size_t len);
 void				*ft_calloc(size_t n, size_t size);
 int					ft_isalnum(int c);
@@ -43,7 +43,7 @@ char				*ft_strdup(const char *string);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *s);
-int					ft_strncmp(unsigned char *s1, unsigned char *s2, size_t n);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *stack, const char *ne, size_t len);
 char				*ft_strrchr(char *s, int c);
 int					ft_tolower(int c);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:58:18 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/16 17:32:36 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:37:39 by kazui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 // int main(void)
 // {
 //     const char *str1 = "Hello, World!";
-//     const char *str2 = "Hello, World!";
+//     const char *str2 = "Hello, World?";
 
 //     const char *str3 = "Hello, World!";
 //     const char *str4 = "Hello, everyone!";
 
-//     printf("same strings): %d\n", ft_strncmp(str1, str2, 20));
-//     printf("different strings): %d\n", ft_strncmp(str3, str4, 20));
+//     printf("same strings): %d\n", ft_strncmp(str1, str2, 13));
+//     printf("different strings): %d\n", ft_strncmp(str1, str2, 12));
 
 //     return (0);
 // }

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:53 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/16 01:32:08 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/21 01:15:52 by kazui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void	*ori_front(size_t len, char *d, const char *s)
 {
@@ -41,10 +42,17 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char		*d;
 	const char	*s;
 
-	s = src;
-	d = dst;
+	if (dst == NULL && src == NULL)
+	{
+		if (len == 0)
+			return (dst);
+		else
+			return (NULL);
+	}
 	if (dst == NULL || src == NULL)
-		return (NULL);
+		abort ();
+	s = (const char *)src;
+	d = (char *)dst;
 	if (d < s)
 		return (ori_front(len, d, s));
 	else
@@ -53,11 +61,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 // int	main(void)
 // {
-// 	char buffer[20] = "HelloWorld";
+// 	// char buffer[20] = "HelloWorld";
 
-// 	printf("befor:%s\n", buffer);
-// 	ft_memmove(buffer + 5, buffer, 11);
-// 	printf("after:%s\n", buffer);
+// 	// printf("befor:%s\n", buffer);
+// 	// ft_memmove(buffer + 5, buffer, 11);
+// 	printf("after:%s\n", ft_memmove(((void *)0), ((void *)0), 1));
 
 // 	return (0);
 // }
