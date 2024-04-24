@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:53 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/21 01:15:52 by kazui            ###   ########.fr       */
+/*   Updated: 2024/04/23 22:18:30 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 void	*ori_front(size_t len, char *d, const char *s)
 {
@@ -50,7 +50,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			return (NULL);
 	}
 	if (dst == NULL || src == NULL)
-		abort ();
+		abort();
 	s = (const char *)src;
 	d = (char *)dst;
 	if (d < s)

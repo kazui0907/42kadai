@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:51:07 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/19 17:56:34 by kazui            ###   ########.fr       */
+/*   Updated: 2024/04/23 23:05:01 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ typedef struct s_list
 }					t_list;
 
 // libc
+
+//文字列を数値にする関数
 int					ft_atoi(const char *str);
+
 void				ft_bzero(void *b, size_t len);
 void				*ft_calloc(size_t n, size_t size);
 int					ft_isalnum(int c);

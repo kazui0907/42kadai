@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:37 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/18 10:11:09 by kazui            ###   ########.fr       */
+/*   Updated: 2024/04/23 20:35:41 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// #include <string.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -28,21 +29,20 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 
-// int main(void)
+// int	main(void)
 // {
-//     char str[] = "Example string for memchr function";
-//     char *result;
+// 	char str[] = "Example string for memchr function";
+// 	char *result;
 
-//     result = ft_menchr(str, 'o', ft_strlen(str));
-//     if(result != NULL)
-//     {
-//         printf("Found position: %ld\n", result - str);
-//         printf("Substring from: %s\n", result);
-//     }
-//     else
-//     {
-//         printf("not found within the first %zu bytes.\n", strlen(str));
-
-//     }
-//     return (0);
+// 	result = ft_memchr(str, 'o', strlen(str));
+// 	if (result != NULL)
+// 	{
+// 		printf("Found position: %ld\n", result - str);
+// 		printf("Substring from: %s\n", result);
+// 	}
+// 	else
+// 	{
+// 		printf("not found within the first %zu bytes.\n", strlen(str));
+// 	}
+// 	return (0);
 // }

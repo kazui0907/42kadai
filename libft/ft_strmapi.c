@@ -6,22 +6,22 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:58:10 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/16 10:42:00 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:42:05 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-char	ft_toupper_index(unsigned int index, char c)
-{
-	if (c >= 'a' && c <= 'z')
-	{
-		c -= 32;
-	}
-	printf("Index %u is now %c\n", index, c);
-	return (c);
-}
+// char	ft_toupper_index(unsigned int index, char c)
+// {
+// 	if (c >= 'a' && c <= 'z')
+// 	{
+// 		c -= 32;
+// 	}
+// 	printf("Index %u is now %c\n", index, c);
+// 	return (c);
+// }
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
