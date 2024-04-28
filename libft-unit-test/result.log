@@ -40,6 +40,4 @@ ft_lstdelone:  [MISSING]
 ft_lstclear:   [MISSING]
 ft_lstiter:    [MISSING]
 ft_lstmap:     [MISSING]
-ft_strcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_strncpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_striteri:   [OK] [OK] {protected}

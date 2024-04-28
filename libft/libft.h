@@ -6,7 +6,7 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:51:07 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/23 23:05:01 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/28 23:48:13 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char				*ft_strrchr(char *s, int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
-char				*ft_strcpy(char *dst, const char *src);
+// char				*ft_strcpy(char *dst, const char *src);
 
 // Additional
 char				*ft_itoa(int n);

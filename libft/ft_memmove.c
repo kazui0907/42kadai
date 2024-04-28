@@ -6,7 +6,7 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:53 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/23 22:18:30 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/28 23:37:14 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void	*ori_front(size_t len, char *d, const char *s)
+static void	*ori_front(size_t len, char *d, const char *s)
 {
 	size_t	i;
 
@@ -27,7 +27,7 @@ void	*ori_front(size_t len, char *d, const char *s)
 	return (d);
 }
 
-void	*ori_back(size_t len, char *d, const char *s)
+static void	*ori_back(size_t len, char *d, const char *s)
 {
 	while (len > 0)
 	{
@@ -49,8 +49,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		else
 			return (NULL);
 	}
-	if (dst == NULL || src == NULL)
-		abort();
 	s = (const char *)src;
 	d = (char *)dst;
 	if (d < s)

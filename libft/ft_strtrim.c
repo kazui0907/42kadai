@@ -6,13 +6,13 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:59:14 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/22 00:40:38 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/28 23:37:14 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+static char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
 	size_t	i;
 

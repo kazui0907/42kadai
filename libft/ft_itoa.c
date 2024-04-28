@@ -6,14 +6,14 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:31 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/22 04:26:17 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/28 23:37:14 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-char	*ori_num(int len, long num)
+static char	*ori_num(int len, long num)
 {
 	char	*str;
 

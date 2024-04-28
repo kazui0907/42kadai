@@ -6,7 +6,7 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:58:58 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/23 22:50:06 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/04/28 23:37:14 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char	*ori_search(const char *stack, const char *ne, size_t len,
+static char	*ori_search(const char *stack, const char *ne, size_t len,
 		size_t ne_len)
 {
 	size_t		i;
@@ -60,20 +60,20 @@ char	*ft_strnstr(const char *stack, const char *ne, size_t len)
 	return (ori_search(stack, ne, len, ne_len));
 }
 
-int	main(void)
-{
-	const char *largestr = "Foo Bar Baz";
-	const char *smallstr = "Bar";
-	char *ptr;
+// int	main(void)
+// {
+// 	const char *largestr = "Foo Bar Baz";
+// 	const char *smallstr = "Bar";
+// 	char *ptr;
 
-	ptr = ft_strnstr(largestr, smallstr, 7);
-	if (ptr)
-	{
-		printf("found: %s\n", ptr);
-	}
-	else
-	{
-		printf("not found\n");
-	}
-	return (0);
-}
+// 	ptr = ft_strnstr(largestr, smallstr, 7);
+// 	if (ptr)
+// 	{
+// 		printf("found: %s\n", ptr);
+// 	}
+// 	else
+// 	{
+// 		printf("not found\n");
+// 	}
+// 	return (0);
+// }
