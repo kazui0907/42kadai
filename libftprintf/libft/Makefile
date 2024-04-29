@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+         #
+#    By: kazui <kazui@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 22:00:03 by kryochik          #+#    #+#              #
-#    Updated: 2024/04/29 03:31:37 by kryochik         ###   ########.fr        #
+#    Updated: 2024/04/17 23:38:38 by kazui            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,5 +87,3 @@ fclean:	clean
 
 # Target 're' depends on 'fclean' and 'all', rebuilding the project from scratch.
 re:	fclean all
-
-.PHONY: all clean fclean re
