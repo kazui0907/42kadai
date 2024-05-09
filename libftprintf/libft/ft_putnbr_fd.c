@@ -6,11 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:53:10 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/15 21:53:12 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:04:59 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

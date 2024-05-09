@@ -6,12 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:50:56 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/15 21:51:03 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:02:12 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

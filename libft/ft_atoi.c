@@ -6,12 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:47:05 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/28 23:37:14 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:15:20 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	ori_process_digits(const char **str, int sign)
 {
@@ -51,20 +50,26 @@ int	ft_atoi(const char *str)
 	return (ori_process_digits(&str, sign));
 }
 
-// int main (void)
+// int	main(void)
 // {
-//     char *test1 = "9223372036854775806";
-//     char *test2 = "9223372036854775806";
-//     char *test3 = "2147483647";
-// 	char *test4 = "2147483647";
-//     char *test5 = "2147483648";
-// 	char *test6 = "2147483648";
+// 	char	*test1;
+// 	char	*test2;
+// 	char	*test3;
+// 	char	*test4;
+// 	char	*test5;
+// 	char	*test6;
 
-//     printf("resultult for '%s': %d\n", test1, ft_atoi(test1));
-//     printf("resultult for '%s': %d\n", test2, atoi(test2));
-//     printf("resultult for '%s': %d\n", test3, ft_atoi(test3));
-//     printf("resultult for '%s': %d\n", test4, atoi(test4));
-//     printf("resultult for '%s': %d\n", test5, ft_atoi(test5));
-//     printf("resultult for '%s': %d\n", test6, atoi(test6));
+// 	test1 = "9223372036854775806";
+// 	test2 = "9223372036854775806";
+// 	test3 = "2147483647";
+// 	test4 = "2147483647";
+// 	test5 = "2147483648";
+// 	test6 = "2147483648";
+// 	printf("resultult for '%s': %d\n", test1, ft_atoi(test1));
+// 	printf("resultult for '%s': %d\n", test2, atoi(test2));
+// 	printf("resultult for '%s': %d\n", test3, ft_atoi(test3));
+// 	printf("resultult for '%s': %d\n", test4, atoi(test4));
+// 	printf("resultult for '%s': %d\n", test5, ft_atoi(test5));
+// 	printf("resultult for '%s': %d\n", test6, atoi(test6));
 // 	return (0);
 // }

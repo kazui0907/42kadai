@@ -6,11 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:53:24 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/23 16:00:39 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:05:27 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -22,27 +22,27 @@ char	*ft_strchr(const char *s, int c)
 		}
 		s++;
 	}
-	if (c == '\0')
+	if ((char)c == '\0')
 	{
 		return ((char *)s);
 	}
 	return (NULL);
 }
 
-// int main(void)
+// int	main(void)
 // {
-//     const char *text = "Hello, world!";
-//     char target = '\0';
-//     char *result;
+// 	// const char *text = "Hello, world!";
+// 	char target = '\0';
+// 	char *result;
 
-//     result = ft_strchr(text, target);
-//     if (result != NULL)
-//     {
-//         printf("'%c' found: %s\n", target, result);
-//     }
-//     else
-//     {
-//         printf("'%c' not found\n", target);
-//     }
-//     return (0);
+// 	result = ft_strchr("teste", 1024);
+// 	if (result != NULL)
+// 	{
+// 		printf("'%c' found: %s\n", target, result);
+// 	}
+// 	else
+// 	{
+// 		printf("'%c' not found\n", target);
+// 	}
+// 	return (0);
 // }

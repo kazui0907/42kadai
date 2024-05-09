@@ -6,11 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:17 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/15 21:52:24 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:03:03 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

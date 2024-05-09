@@ -6,15 +6,13 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:53 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/28 23:37:14 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:03:57 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-static void	*ori_front(size_t len, char *d, const char *s)
+static void	*ori_front(size_t len, unsigned char *d, unsigned const char *s)
 {
 	size_t	i;
 
@@ -27,7 +25,7 @@ static void	*ori_front(size_t len, char *d, const char *s)
 	return (d);
 }
 
-static void	*ori_back(size_t len, char *d, const char *s)
+static void	*ori_back(size_t len, unsigned char *d, unsigned const char *s)
 {
 	while (len > 0)
 	{
@@ -39,8 +37,8 @@ static void	*ori_back(size_t len, char *d, const char *s)
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*d;
-	const char	*s;
+	unsigned char		*d;
+	unsigned const char	*s;
 
 	if (dst == NULL && src == NULL)
 	{
@@ -49,8 +47,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		else
 			return (NULL);
 	}
-	s = (const char *)src;
-	d = (char *)dst;
+	s = (unsigned const char *)src;
+	d = (unsigned char *)dst;
 	if (d < s)
 		return (ori_front(len, d, s));
 	else

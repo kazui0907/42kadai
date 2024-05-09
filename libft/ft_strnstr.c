@@ -6,13 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:58:58 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/28 23:37:14 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:56:29 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <string.h>
 
 static char	*ori_search(const char *stack, const char *ne, size_t len,
 		size_t ne_len)
@@ -40,24 +38,24 @@ static char	*ori_search(const char *stack, const char *ne, size_t len,
 	return (NULL);
 }
 
-char	*ft_strnstr(const char *stack, const char *ne, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	ne_len;
 	char	*crash;
 
-	if (len == 0 && (stack == NULL || ne == NULL))
+	if (len == 0 && (haystack == NULL || needle == NULL))
 		return (NULL);
-	if (!ne || !stack)
+	if (!needle || !haystack)
 	{
 		crash = NULL;
 		*crash = 'x';
 	}
-	if (*ne == '\0')
-		return ((char *)stack);
-	ne_len = strlen(ne);
+	if (*needle == '\0')
+		return ((char *)haystack);
+	ne_len = ft_strlen(needle);
 	if (ne_len == 0 || ne_len > len)
 		return (NULL);
-	return (ori_search(stack, ne, len, ne_len));
+	return (ori_search(haystack, needle, len, ne_len));
 }
 
 // int	main(void)

@@ -6,12 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:44 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/15 21:52:45 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:03:25 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

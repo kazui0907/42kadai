@@ -6,35 +6,21 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:49 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/23 22:07:49 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:03:40 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// #include <stdio.h>
-// #include <unistd.h>
-// #include <string.h>
-
-// #include <stddef.h>
-
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char		*d;
-	const char	*s;
-	char		*crash;
+	unsigned char		*d;
+	unsigned const char	*s;
 
-	if ((dst == NULL || src == NULL) && n == 0)
-		return (dst);
 	if (dst == NULL && src == NULL)
-		return (dst);
-	if (dst == NULL || src == NULL)
-	{
-		crash = NULL;
-		*crash = 'c';
-	}
-	d = (char *)dst;
-	s = (const char *)src;
+		return (NULL);
+	d = (unsigned char *)dst;
+	s = (unsigned const char *)src;
 	while (n--)
 		*d++ = *s++;
 	return (dst);

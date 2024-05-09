@@ -6,12 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:58:10 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/23 15:42:05 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:07:36 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 // char	ft_toupper_index(unsigned int index, char c)
 // {

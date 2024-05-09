@@ -6,11 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:04 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/15 21:52:06 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:02:51 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

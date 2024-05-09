@@ -6,11 +6,10 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:37 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/23 20:35:41 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:03:18 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <string.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)

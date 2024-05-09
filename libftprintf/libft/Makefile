@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kazui <kazui@student.42.fr>                +#+  +:+       +#+         #
+#    By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 22:00:03 by kryochik          #+#    #+#              #
-#    Updated: 2024/04/17 23:38:38 by kazui            ###   ########.fr        #
+#    Updated: 2024/05/09 02:27:42 by kryochik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,8 @@ $(NAME):	$(OBJS)
 	ar rc $(NAME) $(OBJS)
 
 # Target 'bonus' builds the library with additional bonus object files.
-bonus:	$(OBJS) $(BONUS_OBJS)
-	ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
+# bonus:	$(OBJS) $(BONUS_OBJS)
+# 	ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
@@ -87,3 +87,5 @@ fclean:	clean
 
 # Target 're' depends on 'fclean' and 'all', rebuilding the project from scratch.
 re:	fclean all
+
+.PHONY: all clean fclean re

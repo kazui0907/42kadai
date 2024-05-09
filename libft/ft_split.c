@@ -6,13 +6,13 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:53:19 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/28 23:43:53 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 12:13:32 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ori_count_words(const char *s, char c)
+static int	ori_count_words(char const *s, char c)
 {
 	int	count;
 	int	in_word;
@@ -33,7 +33,7 @@ static int	ori_count_words(const char *s, char c)
 	return (count);
 }
 
-static char	*ori_copy_segment(const char *s, int start, int length)
+static char	*ori_copy_segment(char const *s, int start, int length)
 {
 	char	*segment;
 
@@ -44,10 +44,10 @@ static char	*ori_copy_segment(const char *s, int start, int length)
 	return (segment);
 }
 
-static int	ori_word_segment(const char **s_ptr, char c, char **result,
+static int	ori_word_segment(char const **s_ptr, char c, char **result,
 		int *i_ptr)
 {
-	const char	*start;
+	char const	*start;
 	int			word_len;
 
 	start = *s_ptr;
@@ -64,7 +64,7 @@ static int	ori_word_segment(const char **s_ptr, char c, char **result,
 	return (1);
 }
 
-static char	**ori_fill_splits(const char *s, char c, int count)
+static char	**ori_fill_splits(char const *s, char c, int count)
 {
 	char	**result;
 	int		i;
@@ -75,6 +75,8 @@ static char	**ori_fill_splits(const char *s, char c, int count)
 		return (NULL);
 	while (*s && i < count)
 	{
+		if (i != 0)
+			s++;
 		if (*s != c && !ori_word_segment(&s, c, result, &i))
 		{
 			while (--i >= 0)
@@ -82,13 +84,12 @@ static char	**ori_fill_splits(const char *s, char c, int count)
 			free(result);
 			return (NULL);
 		}
-		s++;
 	}
 	result[i] = NULL;
 	return (result);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int	count;
 
@@ -101,8 +102,8 @@ char	**ft_split(const char *s, char c)
 }
 // int	main(void)
 // {
-// 	char const *str = "hello,,world,this,is,a,test";
-// 	char **split = ft_split(str, ',');
+// 	// char const *str = "hello,,world,this,is,a,test";
+// 	char **split = ft_split("xxxxxxxxhello!", 'x');
 // 	if (split != NULL)
 // 	{
 // 		for (int k = 0; split[k] != NULL; k++)

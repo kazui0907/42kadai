@@ -6,12 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:59:08 by kryochik          #+#    #+#             */
-/*   Updated: 2024/04/15 21:59:09 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:12:19 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
