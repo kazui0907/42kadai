@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   print_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 13:56:42 by kryochik          #+#    #+#             */
-/*   Updated: 2024/05/11 01:21:07 by kazui            ###   ########.fr       */
+/*   Created: 2024/04/29 13:57:00 by kryochik          #+#    #+#             */
+/*   Updated: 2024/05/09 18:37:20 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-int print_char(int c, int *printed)
+void	print_string(char *str, int *printed)
 {
-    if (write(1, &c, 1) != 1)
-        return (-1);
-    (*printed)++;
-    return (1);
+	if (!str)
+	{
+		ft_putstr_fd("(null)", 1);
+		*printed += 6;
+	}
+	else
+	{
+		ft_putstr_fd(str, 1);
+		while (*str)
+		{
+			(*printed)++;
+			str++;
+		}
+	}
 }

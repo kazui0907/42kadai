@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:56:27 by kryochik          #+#    #+#             */
-/*   Updated: 2024/05/09 17:48:56 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/11 01:30:10 by kazui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,148 +14,254 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-// void	handle_special(char format, va_list args, int *printed)
+//パターン２
+// void v_format(const char **format, void *ar, int *printed)
 // {
-// 	if (format == 'p')
-// 	{
-// 		print_pointer(va_arg(args, void *));
-// 		(*printed) += 18;
-// 	}
-// 	else if (format == '%')
-// 	{
-// 		print_char('%');
-// 		(*printed)++;
-// 	}
+// 	char fmt;
+	
+// 	fmt  = **format;
+
+//     if (fmt  == 'p')
+//         print_pointer(ar, printed);
 // }
 
-// void	handle_numeric(char format, va_list args, int *printed)
+// void u_format(const char **format, unsigned int ar, int *printed)
 // {
-// 	if (format == 'd' || format == 'i')
-// 	{
-// 		print_number(va_arg(args, int));
-// 		(*printed) += 11;
-// 	}
-// 	else if (format == 'u')
-// 	{
-// 		print_unsigned(va_arg(args, unsigned int));
-// 		(*printed) += 10;
-// 	}
-// 	else if (format == 'x' || format == 'X')
-// 	{
-// 		print_hex(va_arg(args, unsigned int), format);
-// 		(*printed) += 8;
-// 	}
+// 	char fmt;
+	
+// 	fmt  = **format;
+
+//     if (fmt  == 'u')
+//         print_unsigned(ar, printed);
+//     else if (fmt  == 'x' || fmt  == 'X')
+//         print_hex(ar, fmt , printed);
 // }
 
-// void	handle_char_and_string(char format, va_list args, int *printed)
+// void c_format(const char **format, char ar, int *printed)
 // {
-// 	char	*s;
+// 	char fmt;
+	
+// 	fmt  = **format;
 
-// 	if (format == 'c')
+//     if (fmt  == 's')
+// 		print_string(&ar, printed);
+// }
+
+// void i_format(const char **format, int ar, int *printed)
+// {
+// 	char fmt;
+	
+// 	fmt  = **format;
+
+//     if (fmt  == 'c')
+//         print_char(ar, printed);
+//     else if (fmt  == 'd' || fmt  == 'i')
+//         print_number(ar, printed);
+// }
+
+//パターン３
+// void process_format(const char **format, va_list args, int *printed)
+// {
+// 	char *format ;
+	
+//     (*format)++;
+// 	*format  = **format;
+
+//     if (*format  == 'c')
+//         print_char(va_arg(args, int), printed);
+//     else if (*format  == 's')
+//         print_string(va_arg(args, char *), printed);
+//     else if (*format  == 'd' || *format  == 'i')
+//         print_number(va_arg(args, int), printed);
+//     else if (*format  == 'u')
+//         print_unsigned(va_arg(args, unsigned int), printed);
+//     else if (*format  == 'x' || *format  == 'X')
+//         print_hex(va_arg(args, unsigned int), *format , printed);
+//     else if (*format  == 'p')
+//         print_pointer(va_arg(args, void *), printed);
+//     else if (*format  == '%')
+//         print_char('%', printed);
+// }
+
+// パターン１_1
+// int	ft_printf(const char *format, ...)
+// {
+// 	va_list	args;
+// 	int		printed;
+
+// 	printed = 0;
+// 	va_start(args, format);
+// 	while (*format)
 // 	{
-// 		print_char(va_arg(args, int));
-// 		(*printed)++;
-// 	}
-// 	else if (format == 's')
-// 	{
-// 		s = va_arg(args, char *);
-// 		print_string(s);
-// 		if (s)
-// 			(*printed) += ft_strlen(s);
+// 		if (*format == '%')
+// 		{
+// 			format++; 
+// 	    	if (*format  == 'c')
+//        			 print_char(va_arg(args, int), &printed);
+//     		else if (*format  == 's')
+//        	 		print_string(va_arg(args, char *), &printed);
+//     		else if (*format  == 'd' || *format  == 'i')
+//         		print_number(va_arg(args, int), &printed);
+//     		else if (*format  == 'u')
+//         		print_unsigned(va_arg(args, unsigned int), &printed);
+//     		else if (*format  == 'x' || *format  == 'X')
+//         		print_hex(va_arg(args, unsigned int), *format , &printed);
+//     		else if (*format  == 'p')
+//         		print_pointer(va_arg(args, void *), &printed);
+//     		else if (*format  == '%')
+//         		print_char('%', &printed);			
+// 		}
 // 		else
-// 			(*printed) += 6;
+// 			print_char(*format, &printed);
+// 		format++;
 // 	}
+// 	va_end(args);
+// 	return (printed);
 // }
 
-void	process_format(const char **format, va_list args, int *printed)
+// パターン１_2
+int ft_printf(const char *format, ...)
 {
-	int	n;
-
-	(*format)++;
-	if (**format == 'c')
-		print_char(va_arg(args, int));
-	else if (**format == 's')
-		print_string(va_arg(args, char *));
-	else if (format == 'd' || format == 'i')
-		print_number(va_arg(args, int));
-	else if (format == 'u')
-		print_unsigned(va_arg(args, unsigned int));
-	else if (format == 'x' || format == 'X')
-		print_hex(va_arg(args, unsigned int), format);
-	else if (format == 'p')
-		print_pointer(va_arg(args, void *));
-	else if (format == '%')
-		print_char('%');
-}
-
-// {
-// 	(*format)++;
-// 	if (**format == 'c' || **format == 's')
-// 		handle_char_and_string(**format, args, printed);
-// 	else if (**format == 'd' || **format == 'i' || **format == 'u'
-// 		|| **format == 'x' || **format == 'X')
-// 		handle_numeric(**format, args, printed);
-// 	else if (**format == 'p' || **format == '%')
-// 		handle_special(**format, args, printed);
-// }
-
-int	ft_printf(const char *format, ...)
-{
-	va_list	args;
-	int		printed;
+    va_list args;
+    int printed;
+    int result;
 
 	printed = 0;
-	va_start(args, format);
-	while (*format)
-	{
-		if (*format == '%')
-			process_format(&format, args, &printed);
-		else
-		{
-			print_char(*format);
-			printed++;
-		}
-		format++;
-	}
-	va_end(args);
-	return (printed);
+    va_start(args, format);
+    while (*format)
+    {
+        if (*format == '%')
+        {
+            format++;
+            if (*format == 'c')
+                result = print_char(va_arg(args, int), &printed);
+            else if (*format == 's')
+                result = print_string(va_arg(args, char*), &printed);
+            else if (*format == 'd' || *format == 'i')
+                result = print_number(va_arg(args, int), &printed);
+            else if (*format == 'u')
+                result = print_unsigned(va_arg(args, unsigned int), &printed);
+            else if (*format == 'x')
+                result = print_hex(va_arg(args, unsigned int), 'x', &printed);
+            else if (*format == 'X')
+                result = print_hex(va_arg(args, unsigned int), 'X', &printed);
+            else if (*format == 'p')
+                result = print_pointer(va_arg(args, void*), &printed);
+            else if (*format == '%')
+                result = print_char('%', &printed);
+            else
+                result = print_char(*format, &printed);
+            if (result == -1) 
+			{
+                va_end(args);
+                return (-1);
+            }
+        }
+        else
+        {
+            result = print_char(*format, &printed);
+            if (result == -1) {
+                va_end(args);
+                return (-1);
+            }
+        }
+        format++;
+    }
+    va_end(args);
+    return (printed);
 }
 
-int	main(void)
-{
+
+//パターン２
+// int	ft_printf(const char *format, ...)
+// {
+// 	va_list	args;
+// 	int		printed;
+
+// 	printed = 0;
+// 	va_start(args, format);
+// 	while (*format)
+// 	{
+// 		if (*format == '%')
+// 		{
+// 			format++; 
+// 	    	if (*format  == 'c' || *format  == 'd' || *format  == 'i')
+// 				i_format(&format, va_arg(args, int), &printed);
+// 			else if (*format  == 's')
+// 				c_format(&format, *va_arg(args, char *), &printed);
+// 			else if (*format  == 'u' || *format  == 'x' || *format  == 'X')
+// 				u_format(&format, va_arg(args, unsigned int), &printed);
+// 			else if (*format  == 'p')
+// 				v_format(&format, va_arg(args, void *), &printed);
+// 			else if (*format  == '%')
+//         		print_char('%', &printed);
+// 		}
+// 		else
+// 			print_char(*format, &printed);
+// 		format++;
+// 	}
+// 	va_end(args);
+// 	return (printed);
+// }
+
+//パターン３
+// int	ft_printf(const char *format, ...)
+// {
+// 	va_list	args;
+// 	int		printed;
+
+// 	printed = 0;
+// 	va_start(args, format);
+// 	while (*format)
+// 	{
+// 		if (*format == '%')
+// 			process_format(&format, args, &printed);
+// 		else
+// 		{
+// 			print_char(*format, &printed);
+// 		}
+// 		format++;
+// 	}
+// 	va_end(args);
+// 	return (printed);
+// }
+
+
+// int	main(void)
+// {
 	// 文字のテスト
-	ft_printf("Test character: %c\n", 'A');
-	printf("printf character: %c\n", 'A');
+// 	ft_printf("Test character: %c %c %c\n", '0', 0, '1');
+// 	printf("printf character: %c %c %c\n", '0', 0, '1');
 
-	// 文字列のテスト
-	printf(" NULL %s NULL \n", NULL);
-	ft_printf(" NULL %s NULL \n", NULL);
+// 	// 文字列のテスト
+// 	// printf(" NULL %s NULL \n", NULL);
+// 	ft_printf(" NULL %s NULL \n", NULL);
 
-	// 整数と整数の負の値のテスト
-	ft_printf("Test integer: %d\n", 0);
-	printf("printf integer: %d\n", 0);
-	ft_printf("Test negative integer: %i\n", -123);
-	printf("printf negative integer: %i\n", -123);
+// 	// 整数と整数の負の値のテスト
+	// ft_printf("Test integer: %d\n", -1);
+	// printf("printf integer: %d\n", -1);
+// 	ft_printf("Test negative integer: %i\n", -123);
+// 	printf("printf negative integer: %i\n", -123);
 
-	// 符号なし整数のテスト
-	ft_printf("Test unsigned integer: %u\n", 150);
-	printf("printf unsigned integer: %u\n", 150);
+// 	// 符号なし整数のテスト
+// 	ft_printf("Test unsigned integer: %u\n", 150);
+// 	printf("printf unsigned integer: %u\n", 150);
 
-	// 16進数（小文字と大文字）のテスト
-	ft_printf("Test hexadecimal (lowercase): %x\n", 255);
-	printf("printf hexadecimal (lowercase): %x\n", 255);
-	ft_printf("Test hexadecimal (uppercase): %X\n", 255);
-	printf("printf hexadecimal (uppercase): %X\n", 255);
+// 	// 16進数（小文字と大文字）のテスト
+// 	ft_printf("Test hexadecimal (lowercase): %x\n", 255);
+// 	printf("printf hexadecimal (lowercase): %x\n", 255);
+// 	ft_printf("Test hexadecimal (uppercase): %X\n", 255);
+// 	printf("printf hexadecimal (uppercase): %X\n", 255);
 
-	// ポインタのアドレスのテスト
-	// int num = 42;
+// 	// ポインタのアドレスのテスト
+// 	// int num = 42;
 
-	ft_printf("Test pointer: %p\n", "");
-	printf("printf pointer: %p\n", "");
+// 	ft_printf("Test pointer: %p\n", "");
+// 	printf("printf pointer: %p\n", "");
 
-	// パーセント記号のリテラルのテスト
-	ft_printf("Test 100%% complete\n");
-	printf("printf 100%% complete\n");
+// 	// パーセント記号のリテラルのテスト
+// 	ft_printf("Test 100%% complete\n");
+// 	printf("printf 100%% complete\n");
 
-	return (0);
-}
+// 	return (0);
+// }

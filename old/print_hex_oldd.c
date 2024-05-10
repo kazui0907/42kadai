@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazui <kazui@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 13:56:42 by kryochik          #+#    #+#             */
-/*   Updated: 2024/05/11 01:21:07 by kazui            ###   ########.fr       */
+/*   Created: 2024/04/29 13:56:47 by kryochik          #+#    #+#             */
+/*   Updated: 2024/05/09 18:31:15 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "ft_printf.h"
 
-int print_char(int c, int *printed)
+void	print_hex(unsigned long long num, char format, int *printed)
 {
-    if (write(1, &c, 1) != 1)
-        return (-1);
-    (*printed)++;
-    return (1);
+	char	*base;
+
+	if (format == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	if (num >= 16)
+		print_hex(num / 16, format, printed);
+	print_char(base[num % 16], printed);
 }
