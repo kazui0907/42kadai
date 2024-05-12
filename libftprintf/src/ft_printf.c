@@ -6,7 +6,7 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:56:27 by kryochik          #+#    #+#             */
-/*   Updated: 2024/05/12 12:33:10 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/12 19:02:08 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static int	process_format(const char **format, va_list args, int *printed)
 	return (result);
 }
 
+//ポインタのポインタを止める
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
