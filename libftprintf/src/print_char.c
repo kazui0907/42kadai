@@ -6,11 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:56:42 by kryochik          #+#    #+#             */
-/*   Updated: 2024/05/12 02:45:57 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/12 12:33:32 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "../libft2/libft.h"
 #include "ft_printf.h"
 
 int	print_char(int c, int *printed)

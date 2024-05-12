@@ -6,11 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:56:47 by kryochik          #+#    #+#             */
-/*   Updated: 2024/05/12 02:46:00 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/12 12:33:36 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "../libft2/libft.h"
 #include "ft_printf.h"
 
 int	print_hex(unsigned long long num, char format, int *printed)

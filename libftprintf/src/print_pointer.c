@@ -6,11 +6,11 @@
 /*   By: kryochik <kryochik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:56:55 by kryochik          #+#    #+#             */
-/*   Updated: 2024/05/12 02:46:08 by kryochik         ###   ########.fr       */
+/*   Updated: 2024/05/12 12:34:31 by kryochik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "../libft2/libft.h"
 #include "ft_printf.h"
 
 int	print_pointer(void *ptr, int *printed)

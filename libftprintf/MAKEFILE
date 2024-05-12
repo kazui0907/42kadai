@@ -3,8 +3,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 
-LIBFT = libft/libft.a
-LIBFT_DIR =libft
+LIBFT = libft2/libft.a
+LIBFT_DIR =libft2
 
 SRC = src/ft_printf.c src/print_char.c src/print_hex.c src/print_number.c src/print_pointer.c src/print_string.c src/print_unsigned.c
 OBJ = $(SRC:.c=.o)
